@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimpleImageGallery.Data\SimpleImageGallery.Data.csproj" />
+    <ProjectReference Include="..\SimpleImageGallery.services\SimpleImageGallery.services.csproj" />
   </ItemGroup>
 
 </Project>

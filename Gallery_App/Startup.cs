@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleImageGallery.Data;
+using SimpleImageGallery.services;
 
 namespace Gallery_App
 {
@@ -34,9 +35,12 @@ namespace Gallery_App
             });
 
 
+            services.AddScoped<IImage, ImageService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<SimpleImageGalleryDbContext>(opt => opt.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
