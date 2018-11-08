@@ -35,12 +35,13 @@ namespace Gallery_App
             });
 
 
-            services.AddScoped<IImage, ImageService>();
+            
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             services.AddDbContext<SimpleImageGalleryDbContext>(opt => opt.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
-            
+            services.AddScoped<IImage, ImageService>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +65,7 @@ namespace Gallery_App
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Gallery}/{action=Index}/{id?}");
             });
         }
     }
